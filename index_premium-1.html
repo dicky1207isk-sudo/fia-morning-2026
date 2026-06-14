@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mowwniiingggg dedee kuu sayanggg</title>
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#fff0f5,#ffffff);
+color:#333;
+overflow-x:hidden;
+}
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+h1{font-size:4rem;margin:0}
+.subtitle{margin:15px 0 30px}
+.btn{
+padding:15px 35px;
+border:none;
+border-radius:999px;
+cursor:pointer;
+font-size:18px;
+}
+.content{display:none}
+.section{
+max-width:1000px;
+margin:auto;
+padding:70px 20px;
+}
+.card{
+background:purple;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+}
+.gallery img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:15px;
+}
+.countdown{
+font-size:2rem;
+text-align:center;
+font-weight:bold;
+}
+.hearts{
+position:fixed;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+}
+.heart{
+position:absolute;
+font-size:20px;
+animation:fall linear forwards;
+}
+@keyframes fall{
+from{transform:translateY(-50px)}
+to{transform:translateY(110vh)}
+}
+footer{text-align:center;padding:40px}
+</style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<section class="hero">
+<h1>Have fun morningg</h1>
+<p class="subtitle">maattt pagii deh pokokna</p>
+<button class="btn" onclick="openGift()">Buka Hadiahnya ya dede sayang 🎁</button>
+</section>
+
+<div id="content" class="content">
+
+<section class="section">
+<div class="card">
+<h2>⏳ Countdown</h2>
+<div class="countdown" id="countdown">1 jam</div>
+</div>
+</section>
+
+<section class="section">
+<div class="card">
+<h2>di klikk yaaa</h2>
+<audio controls loop>
+<source src="musik.mp3" type="audio/mpeg">
+</audio>
+</div>
+</section>
+
+<section class="section">
+<h2 align="center">pap pagii dari mas</h2>
+<div class="gallery">
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+<img src="foto4.jpg">
+</div>
+</section>
+
+<section class="section">
+<div class="card">
+<h2>💌 Surat</h2>
+<p>🤍☀️ Mowwwniiiiinggg yaa dedekuu sayanggggg 🥹🤍☀️
+
+semangattt pagi yaa dedeee manisssnya masss 🤍🥹 semogaaa hari iniii jadi hari yang baik buat dedeee, dipermudah semua urusannya, dilancarkan semua kegiatannya, dan semogaaa banyak hal-hal baik yang datang ke dedeee hari iniii 🤍✨
+
+jangan lupa sarapannn yaa sayanggg, minum air putih juga yang banyakkk 🥹🤍 masss ga mau dedeee sampai telat makan atau kurang istirahattt. walaupun masss ga selalu ada di samping dedeee, tapi percayaa yaa kalau setiap pagi dedeee selalu jadi salah satu hal pertama yang masss pikirin 🤍🥹
+
+semogaaa hari ini dedeee banyak senyumnyaaa, banyak bahagianyaa, dan dijauhkan dari hal-hal yang bikin sedih atau capek hati 🤍✨ kalau ada sesuatu yang bikin dedeee lelah, jalanin pelan-pelan ajaa yaa sayanggg, masss percaya dedeee kuattt dan hebattt 🥹🤍
+
+terima kasih yaa karena udah hadir di hidup masss, terima kasih karena selalu jadi dedeee yang manis, baik, dan selalu berhasil bikin hari-hari masss jadi lebih berwarna 🤍🥹✨
+
+pokoknyaaa selamat menjalani harinya yaa dedeee sayanggg 🤍☀️ semogaaa dari pagi sampai malam nanti semuanya berjalan lancarrr, dan jangan lupa kalau ada waktu kasih kabar ke masss yaa 🥹🤍
+
+have a wonderful dayyy dedeee fiaaa sayanggg 🤍✨ masss sayanggg bangettt sama dedeee 🥹🤍🫶🏻☀️💕</p>
+</div>
+</section>
+
+<footer>
+Dibuat dengan cintaa mas di pagi ini 💗
+</footer>
+
+</div>
+
+<script>
+function openGift(){
+document.getElementById("content").style.display="block";
+window.scrollTo({top:window.innerHeight,behavior:"smooth"});
+}
+
+const targetDate = new Date("2027-01-01");
+function updateCountdown(){
+const now = new Date();
+const diff = targetDate - now;
+const days = Math.max(0,Math.floor(diff/(1000*60*60*24)));
+document.getElementById("countdown").innerText = days + " Hari";
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="🤍";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(5+Math.random()*6)+"s";
+document.getElementById("hearts").appendChild(heart);
+setTimeout(()=>heart.remove(),12000);
+}
+setInterval(createHeart,400);
+</script>
+
+</body>
+</html>
